@@ -44,7 +44,7 @@ uv sync
 A pretrained score network is provided for inference. During sampling, the model starts from pure Gaussian noise and iteratively denoises the image using Langevin Dynamics.
 
 ```bash
-uv run score_matching/sample.py
+uv run sample.py
 ```
 
 The generated image is displayed interactively, allowing the denoising process to be observed step by step.
@@ -54,7 +54,7 @@ The generated image is displayed interactively, allowing the denoising process t
 To train a model from scratch:
 
 ```bash
-uv run score_matching/train.py
+uv run train.py
 ```
 
 By default, the model is trained for 200 epochs.
@@ -62,7 +62,7 @@ By default, the model is trained for 200 epochs.
 Intermediate samples can be generated during training:
 
 ```bash
-uv run score_matching/train.py --epochs 100 --epochs_until_sample 10
+uv run train.py --epochs 100 --epochs_until_sample 10
 ```
 
 This saves intermediate generations to the `samples/` directory and provides insight into how sample quality evolves throughout training.
