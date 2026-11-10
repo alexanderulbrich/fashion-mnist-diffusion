@@ -47,7 +47,27 @@ A pretrained score network is provided for inference. During sampling, the model
 uv run sample.py
 ```
 
-The generated image is displayed interactively, allowing the denoising process to be observed step by step.
+The sampling process is shown live in a dashboard window:
+
+- a grid of samples (16 by default) that are denoised in parallel,
+- the noise schedule with the current noise level highlighted, plus a progress bar,
+- the scaled score norm `σ·‖s(x, σ)‖` for every Langevin step,
+- a timeline showing one sample after each noise level.
+
+When sampling finishes, the dashboard is saved as `samples/final_grid.png`.
+
+Useful options:
+
+```bash
+uv run sample.py --n 25 --seed 7                      # 5x5 grid, reproducible
+uv run sample.py --cmap magma                         # different colormap
+uv run sample.py --final-denoise                      # extra noise-free step for crisper images
+uv run sample.py --save samples/run.gif               # also record an animation (.gif or .mp4)
+uv run sample.py --no-show --save samples/run.gif     # headless, without a window
+uv run sample.py --render-every 10                    # redraw less often for faster sampling
+```
+
+Run `uv run sample.py --help` to see all options.
 
 ## Training a Score Network
 
