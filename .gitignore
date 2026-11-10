@@ -184,4 +184,7 @@ cython_debug/
 # Ignore model for Score Matching
 models/
 
+# Generated samples and animations
+samples/
+
 .DS_Store
